@@ -1,26 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Interviews from './components/Interviews.js'
+import NewInterview from './components/NewInterview.js'
+import EditInterview from './components/EditInterview.js'
+import Participants from './components/Participants.js'
+import NewParticipant from './components/NewParticipant.js'
+import EditParticipant from './components/EditParticipant.js'
+import ShowInterview from './components/ShowInterview.js'
+import ShowParticipant from './components/ShowParticipant.js'
+import Navbar from './components/Navbar.js'
+
+import { BrowserRouter as  Router, Route } from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <Navbar />
+        <div className="App">
+          <Route exact path = "/" component = {Interviews} />
+          <Route exact path = "/newInterview" component = {NewInterview} />
+          <Route exact path = "/editInterview/:id" component = {EditInterview} />
+          <Route exact path = "/participants" component = {Participants} />
+          <Route exact path = "/newParticipant" component = {NewParticipant} />
+          <Route exact path = "/editParticipant/:id" component = {EditParticipant} />
+          <Route exact path = "/ShowInterview/:id" component = {ShowInterview} />
+          <Route exact path = "/ShowParticipant/:id" component = {ShowParticipant} />
+
+
+         </div>
+      </Router>
+
+    );
+  }
 }
 
 export default App;
